@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -5,30 +6,23 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         try {
 
-            String snum1 = scanner.next();
-            String snum2 = scanner.next();
+            BigDecimal num1 = scanner.nextBigDecimal();
+            BigDecimal num2 = scanner.nextBigDecimal();
             String type = scanner.next();
 
-            int num1 = Integer.parseInt(snum1);
-            int num2 = Integer.parseInt(snum2);
-
-            int result;
+            BigDecimal result;
             switch(type) {
                 case "sum":
-                    result = num1 + num2;
+                    result = num1.add(num2);
                     break;
                 case "sub":
-                    result = num1 - num2;
+                    result = num1.subtract(num2);
                     break;
                 case "mul":
-                    result = num1 * num2;
+                    result = num1.multiply(num2);
                     break;
                 case "div":
-                    if (num2 == 0) {
-                        System.out.println("Cannot divide by zero.");
-                        return;
-                    }
-                    result = num1 / num2;
+                    result = num1.divide(num2);
                     break;
                 default:
                     System.out.println("Operation not found! Use one of: sum, sub, mul, div.");
